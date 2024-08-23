@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-08-02T17:56:28.570999" rpa="false" schemaversion="5">
+<suite id="s1" name="testDemo1" source="D:\STUDY\Python\pycharm\Robot_pro\testDemo1.robot">
+<test id="s1-t1" name="Validate UnSuccesful Login" line="9">
+<kw name="Open the browser with perfect url">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-08-02T17:56:29.457608" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-08-02T17:56:29.457608" elapsed="2.978997"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-08-02T17:56:32.439608" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<arg>https://rahulshettyacademy.com/loginpagePractise/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-08-02T17:56:32.438606" elapsed="1.249385"/>
+</kw>
+<status status="PASS" start="2024-08-02T17:56:29.456610" elapsed="4.232376"/>
+</kw>
+<kw name="Fill the login form">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-02T17:56:33.835616" level="INFO">Typing text 'sunil' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>sunil</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-02T17:56:33.835616" elapsed="0.269596"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-08-02T17:56:34.106214" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2024-08-02T17:56:34.228956" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>Aryan</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-02T17:56:34.106214" elapsed="0.271749"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-02T17:56:34.378960" level="INFO">Clicking button 'id:signInBtn'.</msg>
+<arg>id:signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-02T17:56:34.377963" elapsed="0.130745"/>
+</kw>
+<status status="PASS" start="2024-08-02T17:56:33.834613" elapsed="0.674095"/>
+</kw>
+<status status="PASS" start="2024-08-02T17:56:29.455614" elapsed="5.055104"/>
+</test>
+<doc>To validate the Login form</doc>
+<status status="PASS" start="2024-08-02T17:56:28.575540" elapsed="5.958603"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="testDemo1">testDemo1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

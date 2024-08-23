@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-08-11T00:11:00.620594" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo 2" source="D:\STUDY\Python\pycharm\Robot_pro\robot_3\Demo_2.robot">
+<test id="s1-t1" name="Loop Through List" line="5">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T00:11:00.716800" level="INFO">apple</msg>
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T00:11:00.716800" elapsed="0.000000"/>
+</kw>
+<var name="${item}">apple</var>
+<status status="PASS" start="2024-08-11T00:11:00.714988" elapsed="0.001812"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T00:11:00.716800" level="INFO">banana</msg>
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T00:11:00.716800" elapsed="0.000000"/>
+</kw>
+<var name="${item}">banana</var>
+<status status="PASS" start="2024-08-11T00:11:00.716800" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T00:11:00.716800" level="INFO">cherry</msg>
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T00:11:00.716800" elapsed="0.000000"/>
+</kw>
+<var name="${item}">cherry</var>
+<status status="PASS" start="2024-08-11T00:11:00.716800" elapsed="0.000000"/>
+</iter>
+<var>${item}</var>
+<value>@{ITEMS}</value>
+<status status="PASS" start="2024-08-11T00:11:00.714988" elapsed="0.001812"/>
+</for>
+<status status="PASS" start="2024-08-11T00:11:00.713670" elapsed="0.003130"/>
+</test>
+<status status="PASS" start="2024-08-11T00:11:00.629391" elapsed="0.091617"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo 2">Demo 2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
