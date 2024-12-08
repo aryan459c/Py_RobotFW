@@ -21,5 +21,5 @@ Open the browser with perfect url
 Fill the login form
     Input Text    id:username    sunil
     Input Password    id:password    Aryan
-    Click Button    id:signInBtn
+    Click Button    id:signInBtna
 

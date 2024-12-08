@@ -1,59 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-08-02T17:56:28.570999" rpa="false" schemaversion="5">
-<suite id="s1" name="testDemo1" source="D:\STUDY\Python\pycharm\Robot_pro\testDemo1.robot">
-<test id="s1-t1" name="Validate UnSuccesful Login" line="9">
-<kw name="Open the browser with perfect url">
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-11-29T18:24:27.648288" rpa="false" schemaversion="5">
+<suite id="s1" name="DemoPractics" source="D:\STUDY\Python\pycharm\Robot_pro\DemoPractics">
+<suite id="s1-s1" name="OpenBrowserUrl" source="D:\STUDY\Python\pycharm\Robot_pro\DemoPractics\OpenBrowserUrl.robot">
+<test id="s1-s1-t1" name="Login With ID Password" line="7">
+<kw name="Open browser with the perfect url">
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2024-08-02T17:56:29.457608" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2024-11-29T18:24:28.257327" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2024-08-02T17:56:29.457608" elapsed="2.978997"/>
+<status status="PASS" start="2024-11-29T18:24:28.256320" elapsed="4.137037"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-08-02T17:56:32.439608" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
-<arg>https://rahulshettyacademy.com/loginpagePractise/</arg>
+<msg time="2024-11-29T18:24:32.394375" level="INFO">Opening url 'https://facebook.com'</msg>
+<arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-08-02T17:56:32.438606" elapsed="1.249385"/>
+<status status="PASS" start="2024-11-29T18:24:32.394375" elapsed="2.420358"/>
 </kw>
-<status status="PASS" start="2024-08-02T17:56:29.456610" elapsed="4.232376"/>
+<status status="PASS" start="2024-11-29T18:24:28.256320" elapsed="6.558413"/>
 </kw>
-<kw name="Fill the login form">
+<kw name="Fill the login field">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-02T17:56:33.835616" level="INFO">Typing text 'sunil' into text field 'id:username'.</msg>
-<arg>id:username</arg>
-<arg>sunil</arg>
+<msg time="2024-11-29T18:24:34.868732" level="INFO">Typing text 'sunilweb143@gamil.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>sunilweb143@gamil.com</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-02T17:56:33.835616" elapsed="0.269596"/>
+<status status="PASS" start="2024-11-29T18:24:34.868732" elapsed="0.562208"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-08-02T17:56:34.106214" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2024-08-02T17:56:34.228956" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>Aryan</arg>
+<msg time="2024-11-29T18:24:35.431943" level="INFO">Typing password into text field 'id:pass'.</msg>
+<msg time="2024-11-29T18:24:35.551481" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:pass</arg>
+<arg>abc</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-02T17:56:34.106214" elapsed="0.271749"/>
+<status status="PASS" start="2024-11-29T18:24:35.431943" elapsed="0.264607"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-08-02T17:56:34.378960" level="INFO">Clicking button 'id:signInBtn'.</msg>
-<arg>id:signInBtn</arg>
+<msg time="2024-11-29T18:24:35.696550" level="INFO">Clicking button 'xpath://button[@name="login"]'.</msg>
+<arg>xpath://button[@name="login"]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-02T17:56:34.377963" elapsed="0.130745"/>
+<status status="PASS" start="2024-11-29T18:24:35.696550" elapsed="0.229074"/>
 </kw>
-<status status="PASS" start="2024-08-02T17:56:33.834613" elapsed="0.674095"/>
+<status status="PASS" start="2024-11-29T18:24:34.867732" elapsed="1.057892"/>
 </kw>
-<status status="PASS" start="2024-08-02T17:56:29.455614" elapsed="5.055104"/>
+<status status="PASS" start="2024-11-29T18:24:28.255316" elapsed="7.683312"/>
 </test>
-<doc>To validate the Login form</doc>
-<status status="PASS" start="2024-08-02T17:56:28.575540" elapsed="5.958603"/>
+<doc>OpenBrowserCorrectURL</doc>
+<status status="PASS" start="2024-11-29T18:24:27.717170" elapsed="8.235454"/>
+</suite>
+<suite id="s1-s2" name="Login" source="D:\STUDY\Python\pycharm\Robot_pro\DemoPractics\Login.robot">
+<test id="s1-s2-t1" name="LoginForm" line="7">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-29T18:24:35.986641" level="INFO">Opening browser 'chrome' to base url 'http://google.com'.</msg>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-29T18:24:35.986641" elapsed="6.727041"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-29T18:24:42.713682" elapsed="0.221076"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-29T18:24:44.935876" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-29T18:24:42.935765" elapsed="2.000111"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-29T18:24:44.937398" level="INFO">Typing text 'pornhub' into text field 'name:q'.</msg>
+<arg>name:q</arg>
+<arg>pornhub</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-29T18:24:44.937398" elapsed="0.367157"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-29T18:24:45.331553" level="INFO">Clicking button 'name:btnK'.</msg>
+<msg time="2024-11-29T18:24:45.598631" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-11-29T18:24:45.599630" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF645E96CB5+28821]
+	(No symbol) [0x00007FF645E03840]
+	(No symbol) [0x00007FF645CA55B9]
+	(No symbol) [0x00007FF645CFA674]
+	(No symbol) [0x00007FF645CECBA0]
+	(No symbol) [0x00007FF645D1F2FA]
+	(No symbol) [0x00007FF645CEC3F6]
+	(No symbol) [0x00007FF645D1F510]
+	(No symbol) [0x00007FF645D3F412]
+	(No symbol) [0x00007FF645D1F0A3]
+	(No symbol) [0x00007FF645CEA778]
+	(No symbol) [0x00007FF645CEB8E1]
+	GetHandleVerifier [0x00007FF6461CFCAD+3408013]
+	GetHandleVerifier [0x00007FF6461E741F+3504127]
+	GetHandleVerifier [0x00007FF6461DB5FD+3455453]
+	GetHandleVerifier [0x00007FF645F5BDBB+835995]
+	(No symbol) [0x00007FF645E0EB5F]
+	(No symbol) [0x00007FF645E0A814]
+	(No symbol) [0x00007FF645E0A9AD]
+	(No symbol) [0x00007FF645DFA199]
+	BaseThreadInitThunk [0x00007FFF022A257D+29]
+	RtlUserThreadStart [0x00007FFF02E2AF08+40]
+</msg>
+<arg>name:btnK</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2024-11-29T18:24:45.330554" elapsed="0.512344">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF645E96CB5+28821]
+	(No symbol) [0x00007FF645E03840]
+	(No symbol) [0x00007FF645CA55B9]
+	(No symbol) [0x00007FF645CFA674]
+	(No symbol) [0x00007FF645CECBA0]
+	(No symbol) [0x00007FF645D1F2FA]
+	(No symbol) [0x00007FF645CEC3F6]
+	(No symbol) [0x00007FF645D1F510]
+	(No symbol) [0x00007FF645D3F412]
+	(No symbol) [0x00007FF645D1F0A3]
+	(No symbol) [0x00007FF645CEA778]
+	(No symbol) [0x00007FF645CEB8E1]
+	GetHandleVerifier [0x00007FF6461CFCAD+3408013]
+	GetHandleVerifier [0x00007FF6461E741F+3504127]
+	GetHandleVerifier [0x00007FF6461DB5FD+3455453]
+	GetHandleVerifier [0x00007FF645F5BDBB+835995]
+	(No symbol) [0x00007FF645E0EB5F]
+	(No symbol) [0x00007FF645E0A814]
+	(No symbol) [0x00007FF645E0A9AD]
+	(No symbol) [0x00007FF645DFA199]
+	BaseThreadInitThunk [0x00007FFF022A257D+29]
+	RtlUserThreadStart [0x00007FFF02E2AF08+40]
+</status>
+</kw>
+<status status="FAIL" start="2024-11-29T18:24:35.985642" elapsed="9.858257">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF645E96CB5+28821]
+	(No symbol) [0x00007FF645E03840]
+	(No symbol) [0x00007FF645CA55B9]
+	(No symbol) [0x00007FF645CFA674]
+	(No symbol) [0x00007FF645CECBA0]
+	(No symbol) [0x00007FF645D1F2FA]
+	(No symbol) [0x00007FF645CEC3F6]
+	(No symbol) [0x00007FF645D1F510]
+	(No symbol) [0x00007FF645D3F412]
+	(No symbol) [0x00007FF645D1F0A3]
+	(No symbol) [0x00007FF645CEA778]
+	(No symbol) [0x00007FF645CEB8E1]
+	GetHandleVerifier [0x00007FF6461CFCAD+3408013]
+	GetHandleVerifier [0x00007FF6461E741F+3504127]
+	GetHandleVerifier [0x00007FF6461DB5FD+3455453]
+	GetHandleVerifier [0x00007FF645F5BDBB+835995]
+	(No symbol) [0x00007FF645E0EB5F]
+	(No symbol) [0x00007FF645E0A814]
+	(No symbol) [0x00007FF645E0A9AD]
+	(No symbol) [0x00007FF645DFA199]
+	BaseThreadInitThunk [0x00007FFF022A257D+29]
+	RtlUserThreadStart [0x00007FFF02E2AF08+40]
+</status>
+</test>
+<status status="FAIL" start="2024-11-29T18:24:35.968626" elapsed="9.878275"/>
+</suite>
+<meta name="Randomized">Suites and tests (seed 1085144835411312649)</meta>
+<status status="FAIL" start="2024-11-29T18:24:27.651302" elapsed="18.197599"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="testDemo1">testDemo1</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="DemoPractics">DemoPractics</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="OpenBrowserUrl">DemoPractics.OpenBrowserUrl</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s2" name="Login">DemoPractics.Login</stat>
 </suite>
 </statistics>
 <errors>
