@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.0.1 (Python 3.12.3 on win32)" name="Generator">
+<meta content="Robot Framework 7.2.2 (Python 3.13.2 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1252,58 +1252,48 @@ window.stats = (function () {
             });
     }
     function calculatePercents(total, passed, failed, skipped) {
-        if (total == 0) {
+        if (total == 0)
             return [0.0, 0.0, 0.0];
-        }
         var pass = 100.0 * passed / total;
         var skip = 100.0 * skipped / total;
         var fail = 100.0 * failed / total;
         if (pass > 0 && pass < 0.1)
-            pass = 0.1
+            pass = 0.1;
         if (fail > 0 && fail < 0.1)
-            fail = 0.1
+            fail = 0.1;
         if (skip > 0 && skip < 0.1)
-            skip = 0.1
+            skip = 0.1;
         if (pass > 99.95 && pass < 100)
-            pass = 99.9
+            pass = 99.9;
         if (fail > 99.95 && fail < 100)
-            fail = 99.9
+            fail = 99.9;
         if (skip > 99.95 && skip < 100)
-            skip = 99.9
-        return [Math.round(pass*10)/10, Math.round(skip*10)/10, Math.round(fail*10)/10];
+            skip = 99.9;
+        return [round1(pass), round1(skip), round1(fail)];
     }
     function calculateWidths(num1, num2, num3) {
         if (num1 + num2 + num3 === 0)
             return [0.0, 0.0, 0.0];
         // Make small percentages better visible
         if (num1 > 0 && num1 < 1)
-            num1 = 1
+            num1 = 1.0;
         if (num2 > 0 && num2 < 1)
-            num2 = 1
+            num2 = 1.0;
         if (num3 > 0 && num3 < 1)
-            num3 = 1
+            num3 = 1.0;
         // Handle situation where some are rounded up
         while (num1 + num2 + num3 > 100) {
-            if (num1 > num2 && num1 > num3)
-                num1 -= 0.1;
-            else if (num2 > num1 && num2 > num3)
-                num2 -= 0.1;
-            else if (num3 > num1 && num3 > num2)
-                num3 -= 0.1;
-            else if (num1 > num3 && num1 == num2) {
-                num1 -= 0.1;
-                num2 -= 0.1;
-            }
-            else if (num1 > num2 && num1 == num3) {
-                num1 -= 0.1;
-                num3 -= 0.1;
-            }
-            else if (num2 > num1 && num2 == num3) {
-                num2 -= 0.1;
-                num3 -= 0.1;
-            }
+            if (num1 >= num2 && num1 >= num3)
+                num1 = round1(num1 - 0.1);
+            else if (num2 >= num1 && num2 >= num3)
+                num2 = round1(num2 - 0.1);
+            else
+                num3 = round1(num3 - 0.1);
         }
-        return [Math.ceil(num1*10)/10, Math.ceil(num2*10)/10, Math.ceil(num3*10)/10];
+        return [num1, num2, num3];
+    }
+    function round1(num) {
+        return Math.round(num*10) / 10;
     }
     return {
         Statistics: Statistics
@@ -1522,7 +1512,7 @@ window.testdata = function () {
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
     var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF',
                          'ELSE IF', 'ELSE', 'RETURN', 'VAR', 'TRY', 'EXCEPT', 'FINALLY',
-                         'WHILE', 'CONTINUE', 'BREAK', 'ERROR'];
+                         'WHILE', 'GROUP', 'CONTINUE', 'BREAK', 'ERROR'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -2081,25 +2071,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,1,0,[3,4],[0,0,18198],[[5,6,7,8,[],[1,66,8235],[],[[9,0,0,[],[1,604,7683],[[0,10,0,0,0,0,0,0,[1,605,6558],[[0,11,12,0,13,14,0,0,[1,605,4137],[[606,2,15]]],[0,16,12,0,17,18,0,0,[1,4743,2420],[[4743,2,19]]]]],[0,20,0,0,0,0,0,0,[1,7217,1058],[[0,21,12,0,22,23,0,0,[1,7218,562],[[7218,2,24]]],[0,25,12,0,26,27,0,0,[1,7781,265],[[7781,2,28],[7900,2,29]]],[0,30,12,0,31,32,0,0,[1,8046,229],[[8046,2,33]]]]]]]],[],[1,1,0,0]],[34,35,36,0,[],[0,8318,9878],[],[[37,0,0,[],[0,8335,9858,38],[[0,39,12,0,40,41,0,0,[1,8336,6727],[[8336,2,42]]],[0,43,12,0,44,0,0,0,[1,15063,221],[]],[0,45,46,0,47,48,0,0,[1,15285,2000],[[17285,2,49]]],[0,21,12,0,22,50,0,0,[1,17286,367],[[17286,2,51]]],[0,30,12,0,31,52,0,0,[0,17680,512],[[17681,2,53],[17948,2,54],[17949,5,38]]]]]],[],[1,0,1,0]]],[],[],[2,1,1,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,7533],[[4,5,4,0,[],[1,81,7450],[[6,7,8,9,[],[1,82,7446],[],[[10,0,0,[],[1,507,7020],[[0,11,0,0,0,0,0,0,[1,508,7019],[[0,12,13,0,14,15,0,0,[1,513,4985],[[513,2,16]]],[0,17,13,0,18,19,0,0,[1,5499,2028],[[5499,2,20]]]]]]]],[],[1,1,0,0]]],[],[],[1,1,0,0]]],[],[],[1,1,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*DemoPractics","*D:\\STUDY\\Python\\pycharm\\Robot_pro\\DemoPractics","*Randomized","*<p>Suites and tests (seed 1085144835411312649)\x3c/p>","*OpenBrowserUrl","*D:\\STUDY\\Python\\pycharm\\Robot_pro\\DemoPractics\\OpenBrowserUrl.robot","*DemoPractics/OpenBrowserUrl.robot","*<p>OpenBrowserCorrectURL\x3c/p>","*Login With ID Password","*Open browser with the perfect url","*Create Webdriver","*SeleniumLibrary","*<p>Creates an instance of Selenium WebDriver.\x3c/p>","*Chrome","*Creating an instance of the Chrome WebDriver.","*Go To","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*${url}","*Opening url '<a href=\"https://facebook.com\">https://facebook.com\x3c/a>'","*Fill the login field","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id:email    sunilweb143@gamil.com","*Typing text 'sunilweb143@gamil.com' into text field 'id:email'.","*Input Password","*<p>Types the given password into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id:pass    abc","*Typing password into text field 'id:pass'.","*Temporally setting log level to: NONE","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*<a href=\"xpath://button[@name=&quot;login\">xpath://button[@name=\"login\x3c/a>\"]","*Clicking button '<a href=\"xpath://button[@name=&quot;login\">xpath://button[@name=\"login\x3c/a>\"]'.","*Login","*D:\\STUDY\\Python\\pycharm\\Robot_pro\\DemoPractics\\Login.robot","*DemoPractics/Login.robot","*LoginForm","eNqN07tugzAUBuA5PIXHREiRr2CQOtiA2wzN0KRdqg6EnDQoBCpwpfTta5Ql7WDi0fr8+3KOiwbO0Np1Z1ethb6sbLlroLhU8GXrrk3RMwxD+QkpgqtEbWdRfWMDhOYbh5x284cuRdWx787wQBhZ4mUUx3Ipo0WwsWV1sm4VpMHsEexT2e4beIO+PtTQo3d8wW7ExkRcFEmUaRFSKSn5CGbzdYeGn/Ouaxb/HGaSY5/IlBA68Qqjoph7RZFp5d0lJ4YaNZHBTDSRIYh/F2Y4oRMZWDH/OZQriF9oWYyv7q9RRDKTqTxkHEtM2B2+iDkxIRPYXSK+w+damDFfCC6m84UROtc6lEwkifA3TeGS/UJJwidEonJvKYwiydh4uhxge+yh3K/a2m6P3+3pRhpMqaIizkM64hfbvA7QX737Mb39awuqDJbh2PO/T+AKXA==","*Open Browser","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${Browser}","*Opening browser 'chrome' to base url '<a href=\"http://google.com\">http://google.com\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*2","*Slept 2 seconds.","*name:q    pornhub","*Typing text 'pornhub' into text field 'name:q'.","*name:btnK","*Clicking button 'name:btnK'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-1.png\"><img src=\"selenium-screenshot-1.png\" width=\"800px\">\x3c/a>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Robot pro","*D:\\STUDY\\Python\\pycharm\\Robot_pro","*.","*Tests","*D:\\STUDY\\Python\\pycharm\\Robot_pro\\Tests","*testDemo1","*D:\\STUDY\\Python\\pycharm\\Robot_pro\\Tests\\testDemo1.robot","*Tests/testDemo1.robot","*<p>To validate the login form\x3c/p>","*Validate Successfully login","*open the browser with the facebook url","*Create Webdriver","*SeleniumLibrary","*<p>Creates an instance of Selenium WebDriver.\x3c/p>","*Chrome","*Creating an instance of the Chrome WebDriver.","*Go To","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*<a href=\"https://facebook.com\">https://facebook.com\x3c/a>","*Opening url '<a href=\"https://facebook.com\">https://facebook.com\x3c/a>'"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:18","fail":1,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:18","fail":1,"id":"s1","label":"DemoPractics","name":"DemoPractics","pass":1,"skip":0},{"elapsed":"00:00:08","fail":0,"id":"s1-s1","label":"DemoPractics.OpenBrowserUrl","name":"OpenBrowserUrl","pass":1,"skip":0},{"elapsed":"00:00:10","fail":1,"id":"s1-s2","label":"DemoPractics.Login","name":"Login","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:07","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:08","fail":0,"id":"s1","label":"Robot pro","name":"Robot pro","pass":1,"skip":0},{"elapsed":"00:00:07","fail":0,"id":"s1-s1","label":"Robot pro.Tests","name":"Tests","pass":1,"skip":0},{"elapsed":"00:00:07","fail":0,"id":"s1-s1-s1","label":"Robot pro.Tests.testDemo1","name":"testDemo1","pass":1,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1732884867651;
+window.output["baseMillis"] = 1745402123411;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 18223;
+window.output["generated"] = 7566;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2214,7 +2204,7 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="tagStatisticsRowTemplate">
   <tr class="row-${$item.index}">
-    <td class="stats-col-name" title="{{html doc}}">
+    <td class="stats-col-name" title="${doc}">
       <div class="stat-name">
         <span>{{html label}}</span>
         {{if info}}(${info}){{/if}}

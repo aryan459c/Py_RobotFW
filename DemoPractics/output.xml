@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-11-28T22:25:13.870324" rpa="false" schemaversion="5">
+<suite id="s1" name="OpenBrowserUrl" source="D:\STUDY\Python\pycharm\Robot_pro\DemoPractics\OpenBrowserUrl.robot">
+<test id="s1-t1" name="Login With ID Password" line="7">
+<kw name="Open browser with the perfect url">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-11-28T22:25:14.594597" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-11-28T22:25:14.593598" elapsed="3.657354"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-28T22:25:18.251948" level="INFO">Opening url 'https://facebook.com'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-28T22:25:18.251948" elapsed="2.471460"/>
+</kw>
+<status status="PASS" start="2024-11-28T22:25:14.591600" elapsed="6.131808"/>
+</kw>
+<kw name="Fill the login field">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-28T22:25:20.731408" level="INFO">Typing text 'sunilweb143@gamil.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>sunilweb143@gamil.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-28T22:25:20.730410" elapsed="1.030397"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-11-28T22:25:21.761812" level="INFO">Typing password into text field 'id:pass'.</msg>
+<msg time="2024-11-28T22:25:21.891362" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:pass</arg>
+<arg>abc</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-28T22:25:21.760807" elapsed="0.342164"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-28T22:25:22.103976" level="INFO">Clicking button 'xpath://button[@name="login"]'.</msg>
+<arg>xpath://button[@name="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-28T22:25:22.102971" elapsed="0.331626"/>
+</kw>
+<status status="PASS" start="2024-11-28T22:25:20.729409" elapsed="1.705188"/>
+</kw>
+<status status="PASS" start="2024-11-28T22:25:14.590602" elapsed="7.844996"/>
+</test>
+<doc>OpenBrowserCorrectURL</doc>
+<status status="PASS" start="2024-11-28T22:25:13.874325" elapsed="8.563268"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="OpenBrowserUrl">OpenBrowserUrl</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

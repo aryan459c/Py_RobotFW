@@ -1,6 +1,5 @@
 *** Comments ***
-
-
+Document
 *** Settings ***
 
 *** Variables ***
